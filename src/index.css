@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+
+  --color-navy: #0A1628;
+  --color-navy-light: #1A2A42;
+  --color-gold: #D4A843;
+  --color-gold-light: #F0C96A;
+  --color-gold-pale: #FDF6E3;
+  --color-blue-soft: #E8F0FE;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  --shadow-sm: 0 1px 3px rgba(10, 22, 40, 0.08);
+  --shadow-md: 0 4px 16px rgba(10, 22, 40, 0.12);
+  --shadow-lg: 0 8px 32px rgba(10, 22, 40, 0.16);
+}
+
+@layer base {
+  body {
+    @apply font-sans text-gray-900 bg-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-navy;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-gold text-white font-semibold rounded-md transition-all duration-300 hover:bg-gold-light hover:shadow-md active:scale-95;
+  }
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-navy text-navy font-semibold rounded-md transition-all duration-300 hover:bg-navy hover:text-white active:scale-95;
+  }
+  .btn-ghost {
+    @apply px-6 py-3 text-navy font-semibold transition-all duration-300 hover:bg-gray-100 rounded-md;
+  }
+
+  .badge-sale { @apply px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded uppercase; }
+  .badge-rent { @apply px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded uppercase; }
+  .badge-new { @apply px-2 py-1 bg-green-100 text-green-600 text-xs font-bold rounded uppercase; }
+  .badge-hot { @apply px-2 py-1 bg-orange-100 text-orange-600 text-xs font-bold rounded uppercase; }
+  .badge-verified { @apply px-2 py-1 bg-gold-pale text-gold text-xs font-bold rounded uppercase flex items-center gap-1; }
+
+  .property-card {
+    @apply bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gold;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #0A1628 0%, #1A2A42 100%);
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
